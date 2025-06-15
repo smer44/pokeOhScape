@@ -690,6 +690,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: TestBattleField
+  grid:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  cellPrefab: {fileID: 4274620019330829937, guid: 11a18a6b5c0dd1a4d8027e2466a421f8, type: 3}
+  width: 3
+  height: 0
 --- !u!1001 &1002579894203729337
 PrefabInstance:
   m_ObjectHideFlags: 0
