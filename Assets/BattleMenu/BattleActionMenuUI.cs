@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class BattleActionMenuUI : MonoBehaviour
 {
@@ -45,6 +45,7 @@ public class BattleActionMenuUI : MonoBehaviour
         {
             GameObject backButtonObj = Instantiate(buttonPrefab, buttonParent);
             backButtonObj.GetComponentInChildren<Text>().text = "< Back";
+            print($"Created backwards button for :{backButtonObj} ");
             backButtonObj.GetComponent<Button>().onClick.AddListener(() =>
             {
                 menuStack.Pop();
@@ -52,12 +53,18 @@ public class BattleActionMenuUI : MonoBehaviour
             });
 
         }
-
+        string itemsText =  string.Join<BattleActionMenuItemSO>(", ", menu.items);
+        print($"Start create items for :{itemsText} ");
         foreach (var item in menu.items)
         {
+            if (item == null)
+            {
+                continue;
+            }
             GameObject buttonObj = Instantiate(buttonPrefab, buttonParent);
-            Text buttonText = buttonObj.GetComponentInChildren<Text>();
-            buttonText.text = item.name;
+            print($"Created button for :{buttonObj} ");
+            SetButtonText(buttonObj, item.name);
+
             if (item is BattleActionMenuContainerSO submenu)
             {
                 buttonObj.GetComponent<Button>().onClick.AddListener(() =>
@@ -79,11 +86,20 @@ public class BattleActionMenuUI : MonoBehaviour
 
         }
     }// end of OpenMenu
-    
+
     void ExecuteBattleAction(AbstractBattleActionSO action)
     {
         // Placeholder: Integrate with battle system
         Debug.Log($"Executing action: {action.name}");
     }
+
+
+    void SetButtonText(GameObject buttonObj, string text)
+    {
+        Transform textTransform = buttonObj.transform.Find("Text (TMP)");
+        TextMeshProUGUI tmpText = textTransform.GetComponent<TextMeshProUGUI>();
+        tmpText.text = text;
+
+    }    
 
 }

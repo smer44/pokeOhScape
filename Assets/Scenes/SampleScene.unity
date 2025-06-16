@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 380050641}
   - component: {fileID: 380050640}
   - component: {fileID: 380050644}
+  - component: {fileID: 380050645}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -372,8 +373,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rootMenu: {fileID: 11400000, guid: ff2ac589a1a438e4d88cd4f10f3bf026, type: 2}
-  buttonPrefab: {fileID: 0}
+  buttonPrefab: {fileID: 6140982176871249268, guid: 3fdbcb391700f5347926ca49b258d9b7, type: 3}
   buttonParent: {fileID: 0}
+--- !u!114 &380050645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380050639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,8 +633,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 380050643}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BasiicMoveBA", menuName = "Scriptable Objects/BasiicMoveBA")]
+[CreateAssetMenu(fileName = "BasiicMoveBA", menuName = "Scriptable Objects/BattleActions/BasiicMoveBA")]
 public class BasiicMoveBA : AbstractBattleActionSO
 {
 

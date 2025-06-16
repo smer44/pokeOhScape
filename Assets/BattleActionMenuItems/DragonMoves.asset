@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f255814a21a768f4b9ad2460b95828fb, type: 3}
-  m_Name: DragonBattleActions
+  m_Name: DragonMoves
   m_EditorClassIdentifier: 
-  name: Dragon Actions
+  name: Moves
   items:
-  - {fileID: 11400000, guid: 7a8a0e05bbcf65240bf6ff1d25fbcb3a, type: 2}
-  - {fileID: 11400000, guid: 056f72cf9e6cafb4c9a81cbfe8419ba4, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 1dc2fbde08f517e448c309f77c2aa357, type: 2}
