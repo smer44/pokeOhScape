@@ -8,6 +8,7 @@ public class BattleFieldMB : MonoBehaviour
     [SerializeField]
     public GameObject[] grid;
     public GameObject cellPrefab;
+    public GameObject wallPrefab;
     public int width;
     public int height;
     private int[] nrx = new int[] { -1, 1, 0, 0 };
@@ -45,17 +46,17 @@ public class BattleFieldMB : MonoBehaviour
     {
         for (int n = 0; n < grid.Length; n++)
         {
-            if (grid[n] == null)
-            {
-                Vector2Int xy = ToTwoDimIndex(n);
-                GameObject cell = GetCell(xy);
 
-                Vector3 pos = new Vector3(xy.x, 0, xy.y);
-                GameObject instance = Instantiate(cellPrefab, pos, Quaternion.identity);
-                instance.transform.SetParent(this.transform);
-                grid[n] = instance;
+            Vector2Int xy = ToTwoDimIndex(n);
+            GameObject cell = GetCell(xy);
 
-            }
+            Vector3 pos = new Vector3(xy.x, 0, xy.y);
+
+            GameObject currentCellPrefab = grid[n] == null ? cellPrefab : grid[n]; 
+            GameObject instance = Instantiate(currentCellPrefab, pos, Quaternion.identity);
+            instance.transform.SetParent(this.transform);
+            grid[n] = instance;
+
         }
     }
 

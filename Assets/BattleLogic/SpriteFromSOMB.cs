@@ -3,28 +3,29 @@ using UnityEngine;
 public class SpriteFromSOMB : MonoBehaviour
 {
     public SpriteSO spriteSO;
+    public GameObject unitSprite;
     public Vector2 targetSize = new Vector2(1f, 1f);
-    SpriteRenderer sr;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        SetSprite(spriteSO.sprite);
+        SetSprite(unitSprite, spriteSO.sprite);
 
         Debug.Log($"Sprite set: {spriteSO.sprite}");
     }
 
 
-    void SetSprite(Sprite sprite)
-    {
+    void SetSprite(GameObject go, Sprite sprite)
+    {   
+        SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
         sr.sprite = spriteSO.sprite;
         //resize sprite to given transform size:
         Vector2 spriteSize = sprite.bounds.size;
-        Vector3 newScale = transform.localScale;
+        Vector3 newScale = go.transform.localScale;
 
         newScale.x = targetSize.x / spriteSize.x;
         newScale.y = targetSize.y / spriteSize.y;
-        transform.localScale = newScale;
+        go.transform.localScale = newScale;
 
 
     }
