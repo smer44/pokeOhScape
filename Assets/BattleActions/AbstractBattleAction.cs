@@ -3,19 +3,46 @@ using UnityEngine;
 //[CreateAssetMenu(fileName = "AbstractBattleActionSO", menuName = "Scriptable Objects/BattleActions/BattleActionMenuItemSingleSO")]
 public abstract class AbstractBattleActionSO : ScriptableObject
 {
-    public abstract void Act(BattleFieldMB field, UnitSO[] performers, UnitSO[] targets);
+    public abstract void Act(BattleFieldMB field, GameObject[] performers, GameObject[] targets);
+
+
+    public bool BasicHit(GameObject attackeri, GameObject targeit)
+    {
+        UnitMB attacker = attackeri.GetComponent<UnitMB>();
+        UnitMB target = targeit.GetComponent<UnitMB>();
+        return BasicHit(attacker.data, target.data);
+    }
 
 
     public bool BasicHit(UnitSO attacker, UnitSO target)
     {
-
         int damage = attacker.attack - target.defence;
         bool wasDamage = damage > 0;
         if (wasDamage)
         {
-            target.TakeDamage(damage);
+            TakeDamage(target, damage);
         }
-        return wasDamage;
+        return wasDamage;       
+
+
+    }
+
+
+
+
+
+    public void HalfDef(GameObject unit)
+    {
+
+
+    }
+
+
+
+    public void TakeDamage(ObjectWithHitPointsSO obj, int damageAmount)
+    {
+        obj.hitPoints = Mathf.Max(obj.hitPoints - damageAmount, 0);
+
     }
     
 }

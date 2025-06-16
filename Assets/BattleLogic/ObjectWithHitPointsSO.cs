@@ -7,11 +7,14 @@ public class ObjectWithHitPointsSO : SpriteSO
 
     public int hitPoints;
 
-
-    public void TakeDamage(int damageAmount)
+    public ObjectWithHitPointsSO Copy()
     {
-        hitPoints = Mathf.Max(hitPoints-damageAmount, 0);
+        ObjectWithHitPointsSO obj = ScriptableObject.CreateInstance<ObjectWithHitPointsSO>();
+        obj.unitName = unitName + "_copy";
+        obj.hitPoints = this.hitPoints;
+        return obj;
 
-     }
+    }
+
 
 }
