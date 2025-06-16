@@ -8,6 +8,8 @@ public class BattleActionMenuUI : MonoBehaviour
     public BattleActionMenuContainerSO rootMenu;
     public GameObject buttonPrefab; // A prefab of with a UnityEngine.UI.Button component
     public Transform buttonParent;
+
+    public string backText = "< Back";
     //Scack where you are currently located in the menu
     private Stack<BattleActionMenuContainerSO> menuStack = new Stack<BattleActionMenuContainerSO>();
 
@@ -40,16 +42,16 @@ public class BattleActionMenuUI : MonoBehaviour
     {
 
         ClearButtons();
+        print($"Making menu for :{menu.name} ");
         // If not at the root, add back button
         if (menuStack.Count > 0)
         {
             GameObject backButtonObj = Instantiate(buttonPrefab, buttonParent);
-            backButtonObj.GetComponentInChildren<Text>().text = "< Back";
+            SetButtonText(backButtonObj, backText);
             print($"Created backwards button for :{backButtonObj} ");
             backButtonObj.GetComponent<Button>().onClick.AddListener(() =>
             {
-                menuStack.Pop();
-                OpenMenu(menuStack.Peek());
+                OpenMenu(menuStack.Pop());
             });
 
         }
@@ -69,7 +71,8 @@ public class BattleActionMenuUI : MonoBehaviour
             {
                 buttonObj.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    menuStack.Push(submenu);
+                    menuStack.Push(menu);
+                    print($"menuStack.Push :{menu} ");
                     OpenMenu(submenu);
                 });
 

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ebf38835a10fc44b76d988a0ee7bd1, type: 3}
   m_Name: BattleActionMenuItemSingleSO
   m_EditorClassIdentifier: 
-  name: AttackReduceDef
+  name: AttackRDef
   action: {fileID: 11400000, guid: 1ffe1d9ca938c3f42acdd504f228f7b1, type: 2}
