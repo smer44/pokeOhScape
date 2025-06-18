@@ -11,7 +11,7 @@ public class SpriteFromSOMB : MonoBehaviour
     {
         SetSprite(unitSprite, spriteSO.sprite);
 
-        Debug.Log($"Sprite set: {spriteSO.sprite}");
+        //Debug.Log($"Sprite set: {spriteSO.sprite}");
     }
 
 

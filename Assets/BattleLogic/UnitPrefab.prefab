@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3297057363545284488}
   - component: {fileID: 5973290578228447603}
   - component: {fileID: 3713756016337933515}
+  - component: {fileID: 8469775525845553507}
   m_Layer: 0
   m_Name: PostamentVisuals
   m_TagString: Untagged
@@ -211,6 +212,18 @@ CapsuleCollider:
   m_Height: 2.2301836
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8469775525845553507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4590669502899697103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c148778ce9758f42b283b58771d5ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8050467520431940253
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4434283474919419094}
   - component: {fileID: 8880274810307911929}
+  - component: {fileID: 2344868994110069063}
   m_Layer: 0
   m_Name: UnitPrefab
   m_TagString: Untagged
@@ -257,6 +271,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36d61f42311fe6438cb0ffbfacc13c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteSO: {fileID: 11400000, guid: c22a7796e1f3fe143aeb409f649807a9, type: 2}
+  spriteSO: {fileID: 0}
   unitSprite: {fileID: 4352231337171917004}
   targetSize: {x: 0.7, y: 0.7}
+--- !u!114 &2344868994110069063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050467520431940253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5579f9d4a4b8c41bb1323725133b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialData: {fileID: 0}
+  data: {fileID: 0}
+  team: 

@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e0be03086da1342804591a77d61d20, type: 3}
   m_Name: MoveBA
   m_EditorClassIdentifier: 
+  maxPerformers: 1
+  maxTargets: 1

@@ -4,14 +4,17 @@ public class UnitMB : MonoBehaviour
 {
     public UnitSO initialData;
     public UnitSO data;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public string team;
+
     void Start()
     {
         ResetData();
     }
 
     void ResetData()
-    {
+    {   
+        //data represents current units state like current hp, so they are copied from initial data.
         data = initialData.Copy();
     }
 

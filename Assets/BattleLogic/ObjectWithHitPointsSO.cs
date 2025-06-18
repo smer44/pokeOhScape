@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ObjectWithHitPointsSO", menuName = "Scriptable Objects/ObjectWithHitPointsSO")]
-public class ObjectWithHitPointsSO : SpriteSO
+public class ObjectWithHitPointsSO : ScriptableObject
 {
     public string unitName;
 

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68e606481aeb4c4a9d25883d37b4750, type: 3}
-  m_Name: BasicAttackAction
+  m_Script: {fileID: 11500000, guid: 039b6cf044479864d99a1616bc9ed809, type: 3}
+  m_Name: HedgehogImageSO
   m_EditorClassIdentifier: 
-  maxPerformers: 1
-  maxTargets: 1
+  sprite: {fileID: 21300000, guid: ae6827a9d8b762f4c96ef768402b2d6a, type: 3}

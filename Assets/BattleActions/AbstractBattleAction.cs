@@ -5,6 +5,12 @@ public abstract class AbstractBattleActionSO : ScriptableObject
 {
     public abstract void Act(BattleFieldMB field, GameObject[] performers, GameObject[] targets);
 
+    public int maxPerformers = 1;
+    public int maxTargets = 1;
+
+
+
+    //Basic actions implementation:
 
     public bool BasicHit(GameObject attackeri, GameObject targeit)
     {
