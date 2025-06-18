@@ -16,6 +16,36 @@ public enum CreatureType
     Grass
 }
 
+public enum CreatureMove
+{
+    BasicAttack,
+    Laser,
+    CloseCombat,
+    Buff,
+    Decoy,
+    Tower,
+    SoloHeal,
+    SmokeScreen,
+    Move,
+    Direct,
+    DualSmack,
+    Barrier,
+    Tunnel,
+    Breakdown,
+    ZoneHeal,
+    Focus,
+    Flood,
+    Cloud,
+    Aerial,
+    Poison,
+
+
+
+
+
+
+}
+
 
 
 [CreateAssetMenu(fileName = "CreatureInfo", menuName = "Creatures")]
@@ -34,12 +64,7 @@ public class CreatureInfo : ScriptableObject
     public int hp;
 
     [Header("Moveset")]
-    public  string move1;
-    public string move2;
-    public string move3;
-    public string move4;
-    public string move5;
-    public string move6;
+    public CreatureMove[] moves;
 
 
 

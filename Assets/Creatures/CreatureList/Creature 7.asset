@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbca59d20dd52541b4e148a9e25e6c1, type: 3}
   m_Name: Creature 7
   m_EditorClassIdentifier: 
-  myName: 
-  type: 0
+  Name: GrassAD
+  type: 2
   role: 0
-  move1: 
-  move2: 
-  move3: 
-  move4: 
-  move5: 
-  move6: 
+  attack: 120
+  defense: 100
+  hp: 80
+  moves: 000000001200000002000000030000000400000005000000
