@@ -3,15 +3,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ObjectWithHitPointsSO", menuName = "Scriptable Objects/ObjectWithHitPointsSO")]
 public class ObjectWithHitPointsSO : ScriptableObject
 {
-    public string unitName;
+    [Header("Basic info")]
+    public string Name;
 
-    public int hitPoints;
+    [Header("Stats Info")]
+    public int hp;
 
     public ObjectWithHitPointsSO Copy()
     {
         ObjectWithHitPointsSO obj = ScriptableObject.CreateInstance<ObjectWithHitPointsSO>();
-        obj.unitName = unitName + "_copy";
-        obj.hitPoints = this.hitPoints;
+        obj.Name = Name + "_copy";
+        obj.hp = this.hp;
         return obj;
 
     }

@@ -47,7 +47,7 @@ public abstract class AbstractBattleActionSO : ScriptableObject
 
     public void TakeDamage(ObjectWithHitPointsSO obj, int damageAmount)
     {
-        obj.hitPoints = Mathf.Max(obj.hitPoints - damageAmount, 0);
+        obj.hp = Mathf.Max(obj.hp - damageAmount, 0);
 
     }
     
