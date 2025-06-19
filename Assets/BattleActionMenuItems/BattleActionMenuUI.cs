@@ -7,9 +7,14 @@ public class BattleActionMenuUI : MonoBehaviour
 {
     public BattleActionMenuContainerSO rootMenu;
     public GameObject buttonPrefab; // A prefab of with a UnityEngine.UI.Button component
+
+    public BattleFieldMB battleField;
     public Transform buttonParent;
 
     public string backText = "< Back";
+    public string firstPerformerName;
+
+    public TextMeshProUGUI currentUnitName;
     //Scack where you are currently located in the menu
     private Stack<BattleActionMenuContainerSO> menuStack = new Stack<BattleActionMenuContainerSO>();
 
@@ -29,11 +34,15 @@ public class BattleActionMenuUI : MonoBehaviour
     }
 
 
-    void ClearButtons()
+    void ClearChildren(string tag)
     {
         foreach (Transform child in buttonParent)
         {
-            Destroy(child.gameObject);
+            if (child.CompareTag(tag))
+            {
+                Destroy(child.gameObject);    
+            }
+            
         }
     }
 
@@ -41,7 +50,7 @@ public class BattleActionMenuUI : MonoBehaviour
     void OpenMenu(BattleActionMenuContainerSO menu)
     {
 
-        ClearButtons();
+        ClearChildren("SpawnUIButton");
         print($"Making menu for :{menu.name} ");
         // If not at the root, add back button
         if (menuStack.Count > 0)

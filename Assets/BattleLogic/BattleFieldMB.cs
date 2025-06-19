@@ -9,8 +9,10 @@ public class BattleFieldMB : MonoBehaviour
     public GameObject[] grid;
     public GameObject cellPrefab;
     public GameObject wallPrefab;
+    public BattleActionMenuUI battleActionMenu;
 
     public Dictionary<string, List<GameObject>> teams;
+
 
     public string currentTeam;
     //other teams are concidered to be enemy teams.
@@ -31,7 +33,7 @@ public class BattleFieldMB : MonoBehaviour
     private int[] nrdy = new int[] { -1, -1, -1, 0, 0, 1, 1, 1 };
 
 
-
+    private GameObject battleActionMenuGO;
 
 
 
@@ -84,6 +86,11 @@ public class BattleFieldMB : MonoBehaviour
     {
         UpdateGridHeight();
         InitializeGridCellsIfEmpty();
+        battleActionMenuGO = battleActionMenu.gameObject;
+
+        //Debug.Log($"battleActionMenuGO: {battleActionMenuGO}");
+        //battleActionMenuGO.SetActive(true);
+        // If teams are not known, we update teams from field content.
         teams = UpdateTeams();
         PrintTeams(teams);
 
@@ -144,7 +151,7 @@ public class BattleFieldMB : MonoBehaviour
             {
                 GameObject clickedObject = hit.collider.gameObject;
                 //GameObject referenceObject = clickedObject
-                Debug.Log("Clicked on object: " + clickedObject.name);
+                Debug.Log($"Clicked on object: {clickedObject.name}, fieldState : {fieldState}");
                 //if (fieldState == BattleFieldState.SelectingFirstPerformer)
                 //{
                 //Debug.Assert(performers.Count == 0, "Performers Hashtable is not empty!");
@@ -154,7 +161,12 @@ public class BattleFieldMB : MonoBehaviour
                 //performers.Add()
 
                 //}
+                if (fieldState == BattleFieldState.SelectingFirstPerformer)
+                {
+                    battleActionMenuGO.SetActive(true);
+                    battleActionMenu.firstPerformerName = clickedObject.name;
 
+                }
 
             }
         }
