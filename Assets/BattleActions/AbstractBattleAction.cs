@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 //[CreateAssetMenu(fileName = "AbstractBattleActionSO", menuName = "Scriptable Objects/BattleActions/BattleActionMenuItemSingleSO")]
 public abstract class AbstractBattleActionSO : ScriptableObject
 {

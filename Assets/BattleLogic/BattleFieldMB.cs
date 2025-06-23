@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class BattleFieldMB : MonoBehaviour
 {
@@ -173,6 +174,102 @@ public class BattleFieldMB : MonoBehaviour
 
     }
 
+    private void OnUnitClick(GameObject clickedObject)
+    {
+        switch (fieldState)
+        {
+            case BattleFieldState.SelectingFirstPerformer:
+                OnFirstPerformerClick(clickedObject);
+                break;
+
+            case BattleFieldState.SelectingOtherPerformers:
+                OnOthersPerformerClick(clickedObject);
+                break;
+
+            case BattleFieldState.SelectingTargets:
+                OnTargetClick(clickedObject);
+                break;
+
+            case BattleFieldState.SelectingAction:
+                //do nothing if currently i select an action
+                break;
+            
+
+        }
+
+
+    }
+
+    private void OnFirstPerformerClick(GameObject clickedObject) {
+        if (IsValidPerformer(clickedObject))
+        {
+            selectedPerformers.Add(clickedObject);
+            fieldState = BattleFieldState.SelectingAction;
+
+        }
+
+    }
+
+    private void OnOthersPerformerClick(GameObject clickedObject)
+    {
+        if (CanSelectMorePerformers())
+        {
+            // check if can auto-select other performers.
+            if (IsValidPerformer(clickedObject))
+            {
+                selectedPerformers.Add(clickedObject);
+            }
+
+        }
+        if (!CanSelectMorePerformers())
+        {
+            fieldState = BattleFieldState.SelectingTargets;
+        }
+        
+
+    }
+
+    private bool IsValidPerformer(GameObject clickedObject) {
+        return true;
+
+    }
+
+
+    private bool IsValidTarget(GameObject clickedObject) {
+        return true;
+
+    }
+
+    private bool CanSelectMorePerformers()
+    {
+        return false;
+    }
+
+    private bool CanSelectMoreTargets()
+    {
+        return false;
+    }   
+
+    private void OnTargetClick(GameObject clickedObject)
+    {
+        if (CanSelectMoreTargets())
+        {
+            if (IsValidTarget(clickedObject))
+            {
+                selectedTargets.Add(clickedObject);
+            }
+
+        }
+        if (!CanSelectMoreTargets())
+        {
+            PerformAction();
+            fieldState = BattleFieldState.SelectingFirstPerformer;
+
+        }
+
+    }
+
+
 
     public void MoveChildObject(int fromX, int fromY, int toX, int toY, GameObject childObject)
     {
@@ -218,6 +315,11 @@ public class BattleFieldMB : MonoBehaviour
                 Debug.Log($" - Unit: {unit}");
             }
         }
+    }
+
+    public void PerformAction()
+    {
+        selectedAction.Act(this, selectedPerformers.ToArray(), selectedTargets.ToArray());
     }
 
 
