@@ -769,14 +769,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396625403}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.16701913, y: 0.22371191, z: -0.03894339, w: 0.9594483}
+  m_LocalPosition: {x: 0.956, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 330585546}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.75, y: 26.25, z: 0}
 --- !u!114 &1396625405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,6 +790,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 5
+  camHeight: 2
+  minPitch: 0
+  maxPitch: 60
+  scrollSpeed: 5
+  minZoom: 1
+  maxZoom: 60
+  cam: {fileID: 330585546}
+  camDistance: 40
 --- !u!1 &1627303813
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +880,7 @@ MonoBehaviour:
   buttonParent: {fileID: 0}
   backText: < Back
   firstPerformerName: 
+  currentUnitName: {fileID: 0}
 --- !u!1 &1940568433
 GameObject:
   m_ObjectHideFlags: 0
