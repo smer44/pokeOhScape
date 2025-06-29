@@ -26,17 +26,21 @@ public class BattleFieldMB : MonoBehaviour
 
     public int width;
     public int height;
-    private int[] nrx = new int[] { -1, 1, 0, 0 };
-    private int[] nry = new int[] { 0, 0, -1, 1 };
+    private int[] neighboursOffsetX = new int[] { -1, 1, 0, 0 };
+    private int[] neighboursOffsetY = new int[] { 0, 0, -1, 1 };
 
 
-    private int[] nrdx = new int[] { -1, 0, 1, -1, 1, -1, 0, 1 };
-    private int[] nrdy = new int[] { -1, -1, -1, 0, 0, 1, 1, 1 };
+    private int[] neighboursOffsetWithDiagonalX = new int[] { -1, 0, 1, -1, 1, -1, 0, 1 };
+    private int[] neighboursOffsetWithDiagonalY = new int[] { -1, -1, -1, 0, 0, 1, 1, 1 };
 
 
     private GameObject battleActionMenuGO;
 
 
+    private void UpdateCurrentStateText()
+    {
+        battleActionMenu.SetCurrentUnitName(fieldState.ToString());
+    }
 
     GameObject GetCell(int x, int y)
     {
@@ -109,13 +113,14 @@ public class BattleFieldMB : MonoBehaviour
     void Update()
     {
         UpdateLeftMouseButton();
+        UpdateCurrentStateText();
     }
 
 
     public List<GameObject> GetNeighboursCells(int x, int y, bool includeDiagonal)
     {
-        int[] dx = includeDiagonal ? nrdx : nrx;
-        int[] dy = includeDiagonal ? nrdy : nry;
+        int[] dx = includeDiagonal ? neighboursOffsetWithDiagonalX : neighboursOffsetX;
+        int[] dy = includeDiagonal ? neighboursOffsetWithDiagonalY : neighboursOffsetY;
         List<GameObject> neighbours = new List<GameObject>();
 
         for (int j = 0; j < dy.Length; j++)

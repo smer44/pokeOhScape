@@ -23,7 +23,7 @@ public class BattleActionMenuUI : MonoBehaviour
     {
         UnitMB unitMB = unit.GetComponent<UnitMB>();
         UnitSO unitSO = unitMB.data;
-        
+
 
     }
 
@@ -41,15 +41,17 @@ public class BattleActionMenuUI : MonoBehaviour
     }
 
 
+
+
     void ClearChildren(string tag)
     {
         foreach (Transform child in buttonParent)
         {
             if (child.CompareTag(tag))
             {
-                Destroy(child.gameObject);    
+                Destroy(child.gameObject);
             }
-            
+
         }
     }
 
@@ -71,7 +73,7 @@ public class BattleActionMenuUI : MonoBehaviour
             });
 
         }
-        string itemsText =  string.Join<BattleActionMenuItemSO>(", ", menu.items);
+        string itemsText = string.Join<BattleActionMenuItemSO>(", ", menu.items);
         print($"Start create items for :{itemsText} ");
         foreach (var item in menu.items)
         {
@@ -98,7 +100,7 @@ public class BattleActionMenuUI : MonoBehaviour
             {
                 buttonObj.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    ExecuteBattleAction(singleItem.action);
+                    ExecuteSelectionAction(singleItem.action);
                 });
             }
 
@@ -106,10 +108,11 @@ public class BattleActionMenuUI : MonoBehaviour
         }
     }// end of OpenMenu
 
-    void ExecuteBattleAction(AbstractBattleActionSO action)
+    void ExecuteSelectionAction(AbstractBattleActionSO action)
     {
         // Placeholder: Integrate with battle system
         Debug.Log($"Executing action: {action.name}");
+        action.SelectActionForBattleField(battleField);
     }
 
 
@@ -119,6 +122,15 @@ public class BattleActionMenuUI : MonoBehaviour
         TextMeshProUGUI tmpText = textTransform.GetComponent<TextMeshProUGUI>();
         tmpText.text = text;
 
-    }    
+    }
+
+    public void SetCurrentUnitName(string text)
+    {
+        Transform unitNameTraunform = transform.Find("CurrentUnitName");
+        //Debug.Log($"SetCurrentUnitName : unitNameTraunform: {unitNameTraunform}");
+        TextMeshProUGUI tmpText = unitNameTraunform.GetComponent<TextMeshProUGUI>();
+        //Debug.Log($"SetCurrentUnitName : tmpText: {tmpText.name}");
+        //tmpText.text = text;
+    }
 
 }
