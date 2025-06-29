@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class BattleActionMenuItemSO : ScriptableObject
+public abstract class BattleActionMenuItemSO : ScriptableObject
 {
     public string name;
 
@@ -10,5 +10,7 @@ public class BattleActionMenuItemSO : ScriptableObject
         return name;
 
     }
+
+    public abstract BattleActionMenuItemSO DeepClone();
     
 }

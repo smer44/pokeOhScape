@@ -87,6 +87,7 @@ public class BattleFieldMB : MonoBehaviour
     {
         UpdateGridHeight();
         InitializeGridCellsIfEmpty();
+        InitHashSets();
         battleActionMenuGO = battleActionMenu.gameObject;
 
         //Debug.Log($"battleActionMenuGO: {battleActionMenuGO}");
@@ -152,7 +153,7 @@ public class BattleFieldMB : MonoBehaviour
             {
                 GameObject clickedObject = hit.collider.gameObject;
                 //GameObject referenceObject = clickedObject
-                Debug.Log($"Clicked on object: {clickedObject.name}, fieldState : {fieldState}");
+                //Debug.Log($"Clicked on object: {clickedObject.name}, fieldState : {fieldState}");
                 //if (fieldState == BattleFieldState.SelectingFirstPerformer)
                 //{
                 //Debug.Assert(performers.Count == 0, "Performers Hashtable is not empty!");
@@ -162,12 +163,7 @@ public class BattleFieldMB : MonoBehaviour
                 //performers.Add()
 
                 //}
-                if (fieldState == BattleFieldState.SelectingFirstPerformer)
-                {
-                    battleActionMenuGO.SetActive(true);
-                    battleActionMenu.firstPerformerName = clickedObject.name;
-
-                }
+                OnUnitClick(clickedObject);
 
             }
         }
@@ -176,6 +172,7 @@ public class BattleFieldMB : MonoBehaviour
 
     private void OnUnitClick(GameObject clickedObject)
     {
+        //Debug.Log($"OnUnitClick: {clickedObject.name}, fieldState : {fieldState}");
         switch (fieldState)
         {
             case BattleFieldState.SelectingFirstPerformer:
@@ -193,7 +190,7 @@ public class BattleFieldMB : MonoBehaviour
             case BattleFieldState.SelectingAction:
                 //do nothing if currently i select an action
                 break;
-            
+
 
         }
 
@@ -203,8 +200,13 @@ public class BattleFieldMB : MonoBehaviour
     private void OnFirstPerformerClick(GameObject clickedObject) {
         if (IsValidPerformer(clickedObject))
         {
+            Debug.Log($"OnFirstPerformerClick: selected first performer: {clickedObject.name}");
             selectedPerformers.Add(clickedObject);
             fieldState = BattleFieldState.SelectingAction;
+            //turn action menu on:
+            // battleActionMenu.
+            battleActionMenuGO.SetActive(true);
+            
 
         }
 

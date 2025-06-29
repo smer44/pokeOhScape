@@ -61,7 +61,9 @@ public class UnitSO : ObjectWithHitPointsSO
     public int attack;
     public int defence;
 
+
     [Header("Moveset")]
+    public BattleActionMenuContainerSO actions;
     public CreatureMove[] moves;
 
 
@@ -73,6 +75,8 @@ public class UnitSO : ObjectWithHitPointsSO
         obj.defence = this.defence;
         obj.hp = this.hp;
         obj.moves = (CreatureMove[]) this.moves.Clone();
+        Debug.Assert(actions != null, $"UnitSO.Copy: actions not set for unit : {this.Name}");
+        obj.actions = (BattleActionMenuContainerSO) actions.DeepClone();
         return obj;
 
 

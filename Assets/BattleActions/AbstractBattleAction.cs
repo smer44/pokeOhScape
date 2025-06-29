@@ -44,6 +44,14 @@ public abstract class AbstractBattleActionSO : ScriptableObject
 
     }
 
+    public void SelectActionForBattleField(BattleFieldMB battleFieldMB)
+    {
+        battleFieldMB.selectedAction = this;
+        battleFieldMB.fieldState = BattleFieldState.SelectingOtherPerformers;
+        
+
+    }
+
 
 
     public void TakeDamage(ObjectWithHitPointsSO obj, int damageAmount)

@@ -4,4 +4,12 @@ using UnityEngine;
 public class BattleActionMenuItemSingleSO : BattleActionMenuItemSO
 {
     public AbstractBattleActionSO action;
+
+    public override  BattleActionMenuItemSO DeepClone()
+    {
+        var clone = (BattleActionMenuItemSingleSO)this.MemberwiseClone();
+        clone.action = action;
+        return clone;
+    }
+
 }

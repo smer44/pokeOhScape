@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Creature 1
   m_EditorClassIdentifier: 
   Name: FireAD
+  hp: 80
   type: 1
   role: 0
   attack: 120
-  defense: 100
-  hp: 80
+  defence: 0
+  actions: {fileID: 11400000, guid: ff2ac589a1a438e4d88cd4f10f3bf026, type: 2}
   moves: 000000000100000002000000030000000400000005000000

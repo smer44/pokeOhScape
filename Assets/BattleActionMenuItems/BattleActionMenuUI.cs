@@ -19,6 +19,13 @@ public class BattleActionMenuUI : MonoBehaviour
     private Stack<BattleActionMenuContainerSO> menuStack = new Stack<BattleActionMenuContainerSO>();
 
 
+    void SetUnit(GameObject unit)
+    {
+        UnitMB unitMB = unit.GetComponent<UnitMB>();
+        UnitSO unitSO = unitMB.data;
+        
+
+    }
 
     void Start()
     {
